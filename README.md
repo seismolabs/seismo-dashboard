@@ -1,10 +1,10 @@
-# Seismo Dashboard
+# Dashboard
 
-For now this is just boilerplate of web Seismo client.
+Cool looking, business engaging, super convenient dashboard.
 
 ## Description
 
-It's Angular.js client application which is able to authorize on [Seismo](https://github.com/likeastore/seismo-server) server and use API to render data.
+The consumer of [Analytics](https://github.com/likeastore/analytics) data, to help developers and bussiness people to see Likeastore dynamics.
 
 # License
 
