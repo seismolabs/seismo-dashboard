@@ -6,7 +6,7 @@ angular.module('dashboardApp').controller('auth', function ($scope, $location, $
 	$scope.login = function () {
 		var credentials = {
 			username: this.username,
-			token: this.token
+			password: this.password
 		};
 
 		var success = function (data) {
