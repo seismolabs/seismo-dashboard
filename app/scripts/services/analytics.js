@@ -9,6 +9,11 @@ angular.module('dashboardApp').factory('analytics', function ($http, config) {
 		return $http({method: 'GET', url: query}).success(callback);
 	}
 
+	function yesterdayQuery(id, callback) {
+		var query = url + '/api/reports/day/' + app + '?id=' + id + '&date=' + moment().subtract('days', 1).format('YYYY-MM-DD');
+		return $http({method: 'GET', url: query}).success(callback);
+	}
+
 	function weekQuery(id, callback) {
 		var query = url + '/api/reports/week/' + app + '?id=' + id + '&date=' + moment().format('YYYY-MM-DD');
 		return $http({method: 'GET', url: query}).success(callback);
@@ -26,7 +31,6 @@ angular.module('dashboardApp').factory('analytics', function ($http, config) {
 
 	return {
 		// day
-
 		registeredToday: function (callback) {
 			return todayQuery('user-registered', callback);
 		},
@@ -43,8 +47,41 @@ angular.module('dashboardApp').factory('analytics', function ($http, config) {
 			return todayQuery('search', callback);
 		},
 
-		// week
+		sendToFriendToday: function (callback) {
+			return todayQuery('share-with-friend', callback);
+		},
 
+		sharesToday: function (callback) {
+			return todayQuery('share-like', callback);
+		},
+
+		// yesterday
+		registeredYesterday: function (callback) {
+			return yesterdayQuery('user-registered', callback);
+		},
+
+		loggedOnYesterday: function (callback) {
+			return yesterdayQuery('user-logged-on', callback);
+		},
+
+		networksCreatedYesterday: function (callback) {
+			return yesterdayQuery('network-created', callback);
+		},
+
+		searchesYesterday: function (callback) {
+			return yesterdayQuery('search', callback);
+		},
+
+		sendToFriendYesterday: function (callback) {
+			return yesterdayQuery('share-with-friend', callback);
+		},
+
+		sharesYesterday: function (callback) {
+			return yesterdayQuery('share-like', callback);
+		},
+
+
+		// week
 		registeredWeek: function (callback) {
 			return weekQuery('user-registered', callback);
 		},
@@ -61,8 +98,16 @@ angular.module('dashboardApp').factory('analytics', function ($http, config) {
 			return weekQuery('search', callback);
 		},
 
-		// month
+		sendToFriendWeek: function (callback) {
+			return weekQuery('share-with-friend', callback);
+		},
 
+		sharesWeek: function (callback) {
+			return weekQuery('share-like', callback);
+		},
+
+
+		// month
 		registeredMonth: function (callback) {
 			return monthQuery('user-registered', callback);
 		},
@@ -79,8 +124,15 @@ angular.module('dashboardApp').factory('analytics', function ($http, config) {
 			return monthQuery('search', callback);
 		},
 
-		// last month
+		sendToFriendMonth: function (callback) {
+			return monthQuery('share-with-friend', callback);
+		},
 
+		sharesMonth: function (callback) {
+			return monthQuery('share-like', callback);
+		},
+
+		// last month
 		registeredLastMonth: function (callback) {
 			return lastMonthQuery('user-registered', callback);
 		},
@@ -95,7 +147,14 @@ angular.module('dashboardApp').factory('analytics', function ($http, config) {
 
 		searchesLastMonth: function (callback) {
 			return lastMonthQuery('search', callback);
-		}
+		},
 
+		sendToFriendLastMonth: function (callback) {
+			return lastMonthQuery('share-with-friend', callback);
+		},
+
+		sharesLastMonth: function (callback) {
+			return lastMonthQuery('share-like', callback);
+		}
 	};
 });

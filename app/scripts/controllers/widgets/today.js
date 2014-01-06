@@ -17,4 +17,12 @@ angular.module('dashboardApp').controller('today', function ($scope, analytics) 
 	analytics.searchesToday(function (data) {
 		$scope.searches = data;
 	});
+
+	analytics.sendToFriendToday(function (data) {
+		$scope.sends = data;
+	});
+
+	analytics.sharesToday(function (data) {
+		$scope.shares = data;
+	});
 });

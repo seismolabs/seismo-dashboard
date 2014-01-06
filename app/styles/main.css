@@ -50,14 +50,14 @@ input {
 }
 
 .report p {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 100;
 }
 
 .total {
     color: #384242;
     font-weight: bold;
-    font-size: 100px;
+    font-size: 70px;
 }
 
 .login-panel {

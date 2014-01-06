@@ -20,4 +20,13 @@ angular.module('dashboardApp').controller('lastMonth', function ($scope, analyti
 	analytics.searchesLastMonth(function (data) {
 		$scope.searches = data;
 	});
+
+	analytics.sendToFriendLastMonth(function (data) {
+		$scope.sends = data;
+	});
+
+	analytics.sharesLastMonth(function (data) {
+		$scope.shares = data;
+	});
+
 });

@@ -20,4 +20,13 @@ angular.module('dashboardApp').controller('week', function ($scope, analytics) {
 	analytics.searchesWeek(function (data) {
 		$scope.searches = data;
 	});
+
+	analytics.sendToFriendWeek(function (data) {
+		$scope.sends = data;
+	});
+
+	analytics.sharesWeek(function (data) {
+		$scope.shares = data;
+	});
+
 });
