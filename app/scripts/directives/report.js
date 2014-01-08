@@ -10,7 +10,7 @@ angular.module('dashboardApp').directive('report', function (analytics) {
 
 	return {
 		restrict: 'E',
-		templateUrl: 'templates/report.html',
+		templateUrl: 'views/report.html',
 		scope: true,
 		link: function ($scope, elem, attrs) {
 			$scope.heading = attrs.periodHeading;
