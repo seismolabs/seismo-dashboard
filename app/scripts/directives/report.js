@@ -36,9 +36,22 @@ angular.module('dashboardApp').directive('report', function (analytics) {
 				$scope.sends = data;
 			});
 
+			analytics.report(attrs.report, dates[attrs.date], 'user-followed', function (data) {
+				$scope.followed = data;
+			});
+
 			analytics.report(attrs.report, dates[attrs.date], 'share-like', function (data) {
 				$scope.shares = data;
 			});
+
+			analytics.report(attrs.report, dates[attrs.date], 'user-unfollowed', function (data) {
+				$scope.unfollowed = data;
+			});
+
+			analytics.report(attrs.report, dates[attrs.date], 'account-deactivated', function (data) {
+				$scope.deactivated = data;
+			});
+
 		}
 	};
 });
