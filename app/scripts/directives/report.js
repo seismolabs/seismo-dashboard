@@ -32,26 +32,37 @@ angular.module('dashboardApp').directive('report', function (analytics) {
 				$scope.searches = data;
 			});
 
-			analytics.report(attrs.report, dates[attrs.date], 'share-with-friend', function (data) {
-				$scope.sends = data;
-			});
-
-			analytics.report(attrs.report, dates[attrs.date], 'user-followed', function (data) {
-				$scope.followed = data;
-			});
-
 			analytics.report(attrs.report, dates[attrs.date], 'share-like', function (data) {
 				$scope.shares = data;
 			});
 
-			analytics.report(attrs.report, dates[attrs.date], 'user-unfollowed', function (data) {
-				$scope.unfollowed = data;
+			analytics.report(attrs.report, dates[attrs.date], 'share-with-friend', function (data) {
+				$scope.sends = data;
 			});
 
 			analytics.report(attrs.report, dates[attrs.date], 'account-deactivated', function (data) {
 				$scope.deactivated = data;
 			});
 
+			analytics.report(attrs.report, dates[attrs.date], 'collection-created', function (data) {
+				$scope.collectionsCreated = data;
+			});
+
+			analytics.report(attrs.report, dates[attrs.date], 'collection-shared', function (data) {
+				$scope.collectionsShared = data;
+			});
+
+			analytics.report(attrs.report, dates[attrs.date], 'collection-followed', function (data) {
+				$scope.collectionsFollowed = data;
+			});
+
+			analytics.report(attrs.report, dates[attrs.date], 'collection-unfollowed', function (data) {
+				$scope.collectionsUnfollowed = data;
+			});
+
+			analytics.report(attrs.report, dates[attrs.date], 'collection-item-added', function (data) {
+				$scope.collectionsItemsAdded = data;
+			});
 		}
 	};
 });
